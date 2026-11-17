@@ -1,0 +1,4 @@
+import { sqliteTable, text, integer, index } from 'drizzle-orm/sqlite-core';
+export const spaces = sqliteTable('spaces', {id:text('id').primaryKey(),owner:text('owner').notNull(),title:text('title').notNull(),created:text('created').notNull()});
+export const projects = sqliteTable('projects',{id:text('id').primaryKey(),space:text('space').notNull(),owner:text('owner').notNull(),title:text('title').notNull(),state:text('state').notNull(),version:integer('version').notNull().default(0),created:text('created').notNull(),updated:text('updated').notNull()},t=>[index('projects_space_idx').on(t.space)]);
+export const access = sqliteTable('project_access',{id:text('id').primaryKey(),project:text('project').notNull(),user:text('user').notNull()},t=>[index('access_user_idx').on(t.user),index('access_project_idx').on(t.project)]);

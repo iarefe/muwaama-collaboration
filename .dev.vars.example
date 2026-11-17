@@ -1,0 +1,4 @@
+# Optional local configuration. Leave unused services blank. Never commit real values.
+OPENAI_API_KEY=
+OPENAI_MODEL=
+OPENAI_ANALYSIS_MODEL=
